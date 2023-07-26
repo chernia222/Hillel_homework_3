@@ -1,0 +1,7 @@
+.DS_Store
+.idia/ .gitignore
+.name
+inspectionProfiles/profiles_settings.xml
+misc.xml
+modules.xml
+vcs.xml
