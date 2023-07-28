@@ -3,11 +3,11 @@
 # Строку отримати за допомогою функції input()
 #Домашне завдання_3
 first_num = input("Enter name ")
+unique_characters = set(first_num)
+num_unique_characters = len(unique_characters)
 second_num = 10
 
-length_first_num = len(first_num)
-
-if length_first_num > second_num:
+if num_unique_characters > second_num:
     print(True)
 else:
     print(False)
