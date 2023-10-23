@@ -22,3 +22,6 @@ def test_check_current_user_test(session):
 @pytest.mark.parametrize("password, expected_password", [("Qwerty12345", "Qwerty12345"), ("Qwerty", "Qwerty12345")])
 def test_password_test(password, expected_password):
     assert password == expected_password
+
+# setup
+# teardown

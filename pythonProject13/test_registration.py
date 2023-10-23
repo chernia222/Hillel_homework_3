@@ -1,3 +1,4 @@
+import allure
 import pytest
 import requests
 from selenium import webdriver
@@ -21,6 +22,7 @@ class TestBase:
 
 
 class TestRegistration(TestBase):
+
     def setup_class(self):
         self.user_email = "testLastName@test.com"
         self.user_password = "Qwerty987"
@@ -36,6 +38,7 @@ class TestRegistration(TestBase):
         self._session.post(url="https://qauto2.forstudy.space/api/auth/signin", json=self.user_to_login)
         self._session.delete(url="https://qauto2.forstudy.space/api/users")
 
+    @allure.feature("Beautiful test")
     def test_registration_test(self):
         self._driver.implicitly_wait(3)
         self._driver.get("https://guest:welcome2qauto@qauto2.forstudy.space/")
@@ -58,6 +61,9 @@ class TestRegistration(TestBase):
         repeat_password_input = self._driver.find_element(By.ID, "signupRepeatPassword")
         repeat_password_input.send_keys(self.user_password)
 
+        from allure_commons.types import AttachmentType
+        allure.attach(self._driver.get_screenshot_as_png(), name="FAILED SCREEN",
+                      attachment_type=AttachmentType.PNG)
         register_button = self._driver.find_element(By.XPATH, "//button[text()='Register']")
         register_button.click()
 
